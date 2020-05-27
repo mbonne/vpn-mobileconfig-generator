@@ -24,9 +24,11 @@ This is a quick method to build a profile and distribute it, if you have been un
 <https://github.com/munki/munki/blob/master/code/client/munkilib/FoundationPlist.py>
 <https://github.com/mbonne/vpn-mobileconfig-generator/blob/master/munkilib/FoundationPlist.py>
 
-"""FoundationPlist.py -- a tool to generate and parse OS X .plist files.
+```python
+"""
+FoundationPlist.py -- a tool to generate and parse OS X .plist files.
 This is intended as a drop-in replacement for Python's included plistlib,
-with a few caveats:
+with a few caveats:\
     - readPlist() and writePlist() operate only on a filepath,
         not a file object.
     - there is no support for the deprecated functions:
@@ -45,6 +47,7 @@ dictionary).
 To work with plist data in strings, you can use readPlistFromString()
 and writePlistToString().
 """
+```
 
 No mention of 'data' for your XML. Only basic objects are supported.
 
