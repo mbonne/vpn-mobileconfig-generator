@@ -4,20 +4,22 @@ Generates a macOS VPN .mobileconfig file without needing ProfileManager on macOS
 
 example:
 
-```./generator.py -u "USER" -p "Password123" -s "Shared$ecret!" -v "vpn.server.com" -c "Company Name"```
+`./generator.py -u "USER" -p "Password123" -s "Shared$ecret!" -v "vpn.server.com" -c "Company Name"`
 Or
-```./generator.py -s "Shared$ecret!" -v "vpn.server.com" -c "Company Name"```
+`./generator.py -s "Shared$ecret!" -v "vpn.server.com" -c "Company Name"`
 
 ## Important note about security of the file created with script
 
-The configuration profile will contain the user name and passwords in clear text. If VPN configuration profile gets into the wrong hands, this will allow anyone to simply install to their Mac and gain access to the network via VPN.
+The configuration profile will contain the user name and passwords in clear text.\
+If VPN configuration profile gets into the wrong hands; this will allow anyone to simply install to their Mac and\ gain access to the network via VPN.
 
-For this reason, it is strongly recommended only the shared Secret be added, and you omit the user and password while creating profile.
+For this reason, only the shared Secret be included, and you omit the user and password while creating profile.
 
-When another App is used such as Apple Configurator 2, it will mask the Shared Secret in file by base64 encoding it.
-This generator puts it in as clear text - your Shared Secret, User Name, and Password are all visible in clear text.
+When using Apple Configurator 2, it will mask the Shared Secret with base64 encoding.\
+By comparison, This script adds it all as clear text strings.\
+your Shared Secret, User Name, and Password are all visible if file is opened in a text editor.
 
-This is a quick method to build a profile and distribute it, if you have been unlucky enough to update your Apple Configurator 2 app to Version 2.12.1 (4A20) and found Apple have removed the option to include shared secret. Other means of creating and distributing vpn profiles is highly advised.
+This is a quick and dirty method to build a VPN profile for distribution, if you have an MDM solution, you should be using this.
 
 ## From FoundationPlist.py
 
@@ -28,7 +30,7 @@ This is a quick method to build a profile and distribute it, if you have been un
 """
 FoundationPlist.py -- a tool to generate and parse OS X .plist files.
 This is intended as a drop-in replacement for Python's included plistlib,
-with a few caveats:\
+with a few caveats:
     - readPlist() and writePlist() operate only on a filepath,
         not a file object.
     - there is no support for the deprecated functions:
