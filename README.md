@@ -21,8 +21,8 @@ This is a quick method to build a profile and distribute it, if you have been un
 
 ## From FoundationPlist.py
 
-https://github.com/munki/munki/blob/master/code/client/munkilib/FoundationPlist.py
-https://github.com/mbonne/vpn-mobileconfig-generator/blob/master/munkilib/FoundationPlist.py
+<https://github.com/munki/munki/blob/master/code/client/munkilib/FoundationPlist.py>
+<https://github.com/mbonne/vpn-mobileconfig-generator/blob/master/munkilib/FoundationPlist.py>
 
 """FoundationPlist.py -- a tool to generate and parse OS X .plist files.
 This is intended as a drop-in replacement for Python's included plistlib,
@@ -47,3 +47,20 @@ and writePlistToString().
 """
 
 No mention of 'data' for your XML. Only basic objects are supported.
+
+## hiding password in base64 encoding insecure obfuscation only
+
+With that said, use your judgement.
+<https://stackoverflow.com/questions/157938/hiding-a-password-in-a-python-script-insecure-obfuscation-only>
+
+[Base64](https://docs.python.org/3/library/base64.html) encoding is in the standard library and will only deter casual browsing of code, but not anyone determined:
+
+You can test it out via your python terminal.
+
+```python
+>>> import base64
+>>>  print(base64.b64encode("password".encode("utf-8")))
+cGFzc3dvcmQ=
+>>> print(base64.b64decode("cGFzc3dvcmQ=").decode("utf-8"))
+password
+```
